@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="2taldea"
+                   namespace="_2taldea">
+
+	<class name="Mahaia" table="mahaia">
+		<id name="Id" column="id" type="int">
+			<generator class="identity" />
+		</id>
+
+		<property name="MahailaZenbakia" column="mahaila_zenbakia" type="string" />
+		<property name="Eserlekuak" column="eserlekuak" type="int" />
+		<property name="Habilitado" column="habilitado" type="boolean" />
+		<property name="UpdatedAt" column="updated_at" type="timestamp" />
+	</class>
+</hibernate-mapping>

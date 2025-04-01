@@ -1,0 +1,19 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="2taldea"
+                   namespace="_2taldea">
+
+	<class name="Eskaera" table="eskaera">
+		<id name="Id" column="id" type="int">
+			<generator class="identity" />
+		</id>
+
+		<property name="Egoera" column="egoera" type="boolean" />
+		<property name="Done" column="done" type="boolean" />
+		<property name="EskaeraDone" column="EskaeraDone" type="timestamp" />
+		<property name="Ordainduta" column="ordainduta" type="boolean" />
+
+		<!-- Relación con Langilea, utilizando la propiedad de navegación -->
+		<many-to-one name="Langilea" column="langilea_id" class="_2taldea.Langilea" />
+		<many-to-one name="Mahaila" column="mahaila_id" class="_2taldea.Mahaia" />
+	</class>
+</hibernate-mapping>

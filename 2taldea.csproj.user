@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="EskaerakForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EskaeraResumenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KomandakForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MesaDetallesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PlateraAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProduktuaAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProduktuaEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProduktuakFiltratu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProduktuakForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ResumenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TxatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
