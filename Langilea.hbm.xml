@@ -16,6 +16,6 @@
 		<property name="CreatedAt" column="created_at" type="timestamp" />
 		<property name="UpdatedAt" column="updated_at" type="timestamp" />
 		<property name="DeletedAt" column="deleted_at" type="timestamp" />
-		<property name="TxatBaimena" column="txat_baimena" type="boolean" />
+		<property name="Txat" column="txat" type="boolean" />
 	</class>
 </hibernate-mapping>

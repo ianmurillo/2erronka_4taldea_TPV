@@ -114,7 +114,7 @@
             btnEskaeraSortu.Name = "btnEskaeraSortu";
             btnEskaeraSortu.Size = new Size(150, 50);
             btnEskaeraSortu.TabIndex = 6;
-            btnEskaeraSortu.Text = "Eskaera sortu";
+            btnEskaeraSortu.Text = "Faktura sortu";
             btnEskaeraSortu.UseVisualStyleBackColor = false;
             btnEskaeraSortu.Click += btnEskaeraSortu_Click;
             // 

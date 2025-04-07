@@ -51,101 +51,82 @@ namespace _2taldea
             {
                 try
                 {
-                    // Verificar si la mesa existe
                     var mesa = session.Get<Mahaia>(mahaila_id);
-                    if (mesa == null)
+                    if (mesa == null) throw new Exception($"No se encontró la mesa con ID {mahaila_id}.");
+
+                    // Verificar si ya existe una Eskaera activa para esta mesa
+                    var eskaeraExistente = session.QueryOver<Eskaera>()
+                        .Where(e => e.Mahaila.Id == mahaila_id && e.Egoera == true)
+                        .SingleOrDefault();
+
+                    Eskaera eskaera;
+                    if (eskaeraExistente != null)
                     {
-                        throw new Exception($"No se encontró la mesa con ID {mahaila_id}.");
+                        eskaera = eskaeraExistente; // Usar la misma Eskaera activa
+                    }
+                    else
+                    {
+                        // Si no hay un pedido activo, crear uno nuevo
+                        int nuevoEskaeraZenb = ObtenerNuevoEskaeraZenb(session);
+                        eskaera = new Eskaera
+                        {
+                            Id = nuevoEskaeraZenb,
+                            Mahaila = mesa,
+                            Langilea = session.Get<Langilea>(langilea_id),
+                            Egoera = true
+                        };
+                        session.Save(eskaera);
                     }
 
-                    // Obtener el siguiente número de pedido
-                    int nuevoEskaeraZenb = ObtenerNuevoEskaeraZenb(session);
-
-                    // Crear la nueva 'Eskaera' (pedido)
-                    Eskaera nuevaEskaera = new Eskaera
-                    {
-                        Id = nuevoEskaeraZenb,
-                        Mahaila = mesa, // Relacionar el pedido con la mesa
-                        Langilea = session.Get<Langilea>(langilea_id),
-                        Egoera = true // Estado del pedido (activo)
-                    };
-
-                    session.Save(nuevaEskaera); // Guardar la 'Eskaera' (el pedido en sí)
-
-                    // Iterar a través de los platos en el resumen del pedido
                     foreach (var item in resumen)
                     {
                         var nombrePlato = item.Key;
                         var cantidad = item.Value.cantidad;
-                        var precio = item.Value.precio;
 
-                        // Buscar el plato en la tabla 'Platera'
                         var plato = session.QueryOver<Platera>()
                                            .Where(p => p.Izena == nombrePlato)
                                            .SingleOrDefault();
+                        if (plato == null) throw new Exception($"Plato '{nombrePlato}' no encontrado.");
 
-                        if (plato == null)
+                        var ingredientes = session.QueryOver<AlmazenaPlatera>()
+                                                  .Where(ap => ap.Platera.Id == plato.Id)
+                                                  .List();
+
+                        foreach (var ingrediente in ingredientes)
                         {
-                            throw new Exception($"Plato '{nombrePlato}' no encontrado en la base de datos.");
+                            var producto = session.Get<Almazena>(ingrediente.Almazena.Id);
+                            if (producto == null) throw new Exception($"Producto asociado al plato '{nombrePlato}' no encontrado.");
+
+                            int totalNecesario = ingrediente.Kantitatea * cantidad;
+                            if (producto.Stock < totalNecesario)
+                                throw new Exception($"Stock insuficiente de '{producto.Izena}' para '{nombrePlato}'. Necesario: {totalNecesario}, disponible: {producto.Stock}");
+
+                            producto.Stock -= totalNecesario;
+                            session.Update(producto);
                         }
 
-                        // Buscar todos los productos en 'Almazena' relacionados con el plato
-                        var productos = session.QueryOver<Almazena>()
-                                               .Where(p => p.Izena == plato.Izena)
-                                               .List();
-
-                        if (productos == null || productos.Count == 0)
-                        {
-                            throw new Exception($"No se encontró un producto asociado al plato '{nombrePlato}' en la tabla Almazena.");
-                        }
-
-                        // Verificar si hay stock suficiente
-                        int stockTotalDisponible = productos.Sum(p => p.Stock);
-                        if (stockTotalDisponible < cantidad)
-                        {
-                            throw new Exception($"Stock insuficiente para '{nombrePlato}'. Disponible: {stockTotalDisponible}, solicitado: {cantidad}");
-                        }
-
-                        // Reducir el stock en los productos
-                        int cantidadRestante = cantidad;
-                        foreach (var producto in productos)
-                        {
-                            if (cantidadRestante == 0)
-                                break;
-
-                            int reducirEnEsteProducto = Math.Min(producto.Stock, cantidadRestante);
-                            producto.Stock -= reducirEnEsteProducto;
-                            cantidadRestante -= reducirEnEsteProducto;
-                            session.Update(producto); // Actualizar la cantidad de stock
-                        }
-
-                        // Crear la relación entre la 'Eskaera' (pedido) y los platos en la tabla 'EskaeraPlatera'
-                        for (int i = 0; i < cantidad; i++) // Guardar los platos según la cantidad pedida
+                        for (int i = 0; i < cantidad; i++)
                         {
                             EskaeraPlatera nuevaEskaeraPlatera = new EskaeraPlatera
                             {
-                                Eskaera = nuevaEskaera,  // Relacionar el pedido con el plato
-                                Platera = plato,         // Relacionar el plato con el pedido
-                                NotaGehigarriak = null,  // Puedes agregar una nota adicional aquí
-                                AteratzeOrdua = null,    // Hora de entrega, si es necesario
-                                Egoera = true // Estado del plato (en proceso)
+                                Eskaera = eskaera,  // Usar la Eskaera existente o recién creada
+                                Platera = plato,
+                                Egoera = true
                             };
-
-                            session.Save(nuevaEskaeraPlatera); // Guardar la relación en la tabla 'EskaeraPlatera'
+                            session.Save(nuevaEskaeraPlatera);
                         }
                     }
 
-                    transaction.Commit(); // Confirmar la transacción
+                    transaction.Commit();
                 }
                 catch (Exception ex)
                 {
-                    transaction.Rollback(); // Revertir cambios en caso de error
+                    transaction.Rollback();
                     Console.WriteLine($"Error al guardar el pedido: {ex.Message}");
                     throw;
                 }
             }
         }
-
 
 
 

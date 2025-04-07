@@ -29,46 +29,41 @@ namespace _2taldea
         {
             try
             {
-                // Llamar al controlador para obtener las mesas
-                var mesas = KomandakKudeatzailea.ObtenerMesas(sessionFactory);
+                var mesas = KomandakKudeatzailea.ObtenerMesas(sessionFactory)
+                                .Where(m => m.Habilitado) // Filtrar solo las mesas habilitadas
+                                .ToList();
 
-                int filas = 3; // Número de filas (2 filas)
+                int filas = 3;
                 int buttonWidth = 175;
                 int buttonHeight = 175;
-                int buttonSpacingHorizontal = 40; // Espaciado horizontal aumentado
-                int buttonSpacingVertical = 50; // Espaciado vertical aumentado
-
-                // Calcula el número de mesas por fila
+                int buttonSpacingHorizontal = 40;
+                int buttonSpacingVertical = 50;
                 int mesasPorFila = (int)Math.Ceiling((double)mesas.Count / filas);
-
-                // Calcula el ancho total de los botones y espacios para centrar
                 int totalWidth = mesasPorFila * buttonWidth + (mesasPorFila - 1) * buttonSpacingHorizontal;
-                int startX = (this.ClientSize.Width - totalWidth) / 2; // Centrado horizontal
-                int startY = 300; // Margen superior fijo
+                int startX = (this.ClientSize.Width - totalWidth) / 2;
+                int startY = 300;
 
                 for (int i = 0; i < mesas.Count; i++)
                 {
                     Mahaia mesa = mesas[i];
-
-                    // Cambiar color de fondo según si hay un pedido activo en la mesa
                     Button btnMesa = new Button
                     {
                         Text = $"{mesa.MahailaZenbakia} .Mahaia\n{mesa.Eserlekuak} pertsonentzat",
                         Width = buttonWidth,
                         Height = buttonHeight,
                         Font = new Font("Segoe UI", 14F, FontStyle.Bold),
-                        BackColor = HayPedidoActivo(mesa.Id) ? Color.FromArgb(186, 69, 13) : Color.FromArgb(124, 132, 124),
+                        BackColor = HayPedidoActivo(mesa.Id) ? Color.FromArgb(124, 132, 124) : Color.FromArgb(186, 69, 13),
                         ForeColor = Color.White,
                         FlatStyle = FlatStyle.Flat,
-                        Tag = mesa.Id
+                        Tag = mesa.Id,
+                        Enabled = mesa.Habilitado // Deshabilitar botón si la mesa no está habilitada
                     };
 
                     int column = i % mesasPorFila;
                     int row = i / mesasPorFila;
-
                     btnMesa.Location = new Point(
                         startX + column * (buttonWidth + buttonSpacingHorizontal),
-                        startY + row * (buttonHeight + buttonSpacingVertical) + (row * 20) // Ajuste adicional para la segunda fila
+                        startY + row * (buttonHeight + buttonSpacingVertical) + (row * 20)
                     );
 
                     btnMesa.Click += BtnMesa_Click;
@@ -81,30 +76,23 @@ namespace _2taldea
             }
         }
 
-        // Función que verifica si hay un pedido activo en la mesa
         private bool HayPedidoActivo(int mahaila_id)
         {
             using (ISession session = sessionFactory.OpenSession())
             {
-                // Comprobar si hay un pedido activo en la tabla Eskaera
                 return session.QueryOver<Eskaera>()
                               .Where(e => e.Mahaila.Id == mahaila_id && e.Egoera == true)
                               .RowCount() > 0;
             }
         }
 
-        // Acción al hacer click sobre una mesa
         private void BtnMesa_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             if (btn != null)
             {
                 int mahaila_id = (int)btn.Tag;
-
-                // Procesar la mesa y cambiar su color según el estado del pedido
                 EskaeraKudeatzaile.ProcesarMesa(mahaila_id, nombreUsuario, sessionFactory);
-
-                // Actualizar el color de fondo después de procesar la mesa
                 btn.BackColor = HayPedidoActivo(mahaila_id) ? Color.FromArgb(124, 132, 124) : Color.FromArgb(186, 69, 13);
             }
         }

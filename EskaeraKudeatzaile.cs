@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using NHibernate;
 
 namespace _2taldea
@@ -13,30 +14,25 @@ namespace _2taldea
             {
                 using (ISession session = sessionFactory.OpenSession())
                 {
-                    var pedidosActivos = session.CreateQuery("FROM Eskaera WHERE MahailaId = :mahaila_id AND Egoera = true")
-                                                .SetParameter("mahaila_id", mahaila_id)
-                                                .List<Eskaera>();
+                    var pedidosActivos = session.QueryOver<Eskaera>()
+                                                .Where(e => e.Mahaila.Id == mahaila_id && e.Egoera == true)
+                                                .List();
 
-                    if (pedidosActivos.Count == 0)
+                    if (pedidosActivos == null || pedidosActivos.Count == 0)
                     {
                         MessageBox.Show("No hay pedidos activos para esta mesa.", "Resumen de Mesa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
-                    // Mostrar el resumen en un nuevo formulario, pasando el nombre del usuario
+                    // Mostrar el resumen en un nuevo formulario, pasando todos los pedidos activos
                     EskaeraResumenForm resumenForm = new EskaeraResumenForm(mahaila_id, pedidosActivos.ToList(), nombreUsuario, sessionFactory);
                     resumenForm.ShowDialog();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errorea mahaia aukeratzean: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al procesar la mesa: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        internal static object HayPedidoActivo(ISessionFactory sessionFactory)
-        {
-            throw new NotImplementedException();
         }
     }
 }

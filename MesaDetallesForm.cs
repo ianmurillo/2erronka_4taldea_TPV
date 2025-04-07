@@ -46,8 +46,9 @@ namespace _2taldea
             TabPage bebidasTab = new TabPage("Edaria");
             TabPage primerPlatoTab = new TabPage("Lehen_Platera");
             TabPage segundoPlatoTab = new TabPage("Bigarren_Platera");
+            TabPage postreaTab = new TabPage("Postrea");
 
-            tabControl.TabPages.AddRange(new[] { bebidasTab, primerPlatoTab, segundoPlatoTab });
+            tabControl.TabPages.AddRange(new[] { bebidasTab, primerPlatoTab, segundoPlatoTab, postreaTab });
 
             // Crear el Label para mostrar el número de la mesa
             Label mesaLabel = new Label
@@ -70,6 +71,7 @@ namespace _2taldea
             CargarPlatos("Edaria", bebidasTab); // Se carga de inmediato
             CargarPlatos("Lehen_Platera", primerPlatoTab);
             CargarPlatos("Bigarren_Platera", segundoPlatoTab);
+            CargarPlatos("Postrea", postreaTab);
         }
 
 

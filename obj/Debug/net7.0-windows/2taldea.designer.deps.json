@@ -45,7 +45,7 @@
           }
         }
       },
-      "itext/9.0.0": {
+      "itext/9.1.0": {
         "dependencies": {
           "Microsoft.DotNet.PlatformAbstractions": "1.1.0",
           "Microsoft.Extensions.DependencyModel": "1.1.0",
@@ -61,92 +61,92 @@
           "System.Threading.Thread": "4.3.0",
           "System.Threading.ThreadPool": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0",
-          "itext.commons": "9.0.0"
+          "itext.commons": "9.1.0"
         },
         "runtime": {
           "lib/netstandard2.0/itext.barcodes.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.bouncy-castle-connector.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.forms.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.io.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.kernel.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.layout.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.pdfa.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.pdfua.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.sign.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.styledxmlparser.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           },
           "lib/netstandard2.0/itext.svg.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           }
         }
       },
-      "itext.bouncy-castle-adapter/9.0.0": {
+      "itext.bouncy-castle-adapter/9.1.0": {
         "dependencies": {
           "BouncyCastle.Cryptography": "2.4.0",
-          "itext.commons": "9.0.0"
+          "itext.commons": "9.1.0"
         },
         "runtime": {
           "lib/netstandard2.0/itext.bouncy-castle-adapter.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           }
         }
       },
-      "itext.commons/9.0.0": {
+      "itext.commons/9.1.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "5.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/itext.commons.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           }
         }
       },
-      "itext7/9.0.0": {
+      "itext7/9.1.0": {
         "dependencies": {
-          "itext": "9.0.0"
+          "itext": "9.1.0"
         }
       },
-      "itext7.bouncy-castle-adapter/9.0.0": {
+      "itext7.bouncy-castle-adapter/9.1.0": {
         "dependencies": {
-          "itext.bouncy-castle-adapter": "9.0.0"
+          "itext.bouncy-castle-adapter": "9.1.0"
         }
       },
-      "itext7.commons/9.0.0": {
+      "itext7.commons/9.1.0": {
         "dependencies": {
-          "itext.commons": "9.0.0"
+          "itext.commons": "9.1.0"
         }
       },
       "K4os.Compression.LZ4/1.3.8": {
@@ -161,7 +161,7 @@
         "dependencies": {
           "K4os.Compression.LZ4": "1.3.8",
           "K4os.Hash.xxHash": "1.0.8",
-          "System.IO.Pipelines": "6.0.3"
+          "System.IO.Pipelines": "9.0.0"
         },
         "runtime": {
           "lib/net6.0/K4os.Compression.LZ4.Streams.dll": {
@@ -175,6 +175,14 @@
           "lib/net6.0/K4os.Hash.xxHash.dll": {
             "assemblyVersion": "1.0.8.0",
             "fileVersion": "1.0.8.0"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/9.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
           }
         }
       },
@@ -307,7 +315,7 @@
           }
         }
       },
-      "MySql.Data/9.1.0": {
+      "MySql.Data/9.2.0": {
         "dependencies": {
           "BouncyCastle.Cryptography": "2.4.0",
           "Google.Protobuf": "3.26.1",
@@ -319,14 +327,14 @@
           "System.Runtime.Loader": "4.3.0",
           "System.Security.Permissions": "8.0.0",
           "System.Text.Encoding.CodePages": "8.0.0",
-          "System.Text.Json": "8.0.4",
+          "System.Text.Json": "9.0.0",
           "System.Threading.Tasks.Extensions": "4.5.4",
           "ZstdSharp.Port": "0.8.0"
         },
         "runtime": {
-          "lib/net6.0/MySql.Data.dll": {
-            "assemblyVersion": "9.1.0.0",
-            "fileVersion": "9.1.0.0"
+          "lib/netstandard2.1/MySql.Data.dll": {
+            "assemblyVersion": "9.2.0.0",
+            "fileVersion": "9.2.0.0"
           }
         },
         "runtimeTargets": {
@@ -930,11 +938,16 @@
           }
         }
       },
-      "System.IO.Pipelines/6.0.3": {
+      "System.IO.Pipelines/9.0.0": {
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.5",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
         "runtime": {
-          "lib/net6.0/System.IO.Pipelines.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.522.21309"
+          "lib/netstandard2.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
           }
         }
       },
@@ -998,6 +1011,7 @@
           }
         }
       },
+      "System.Memory/4.5.5": {},
       "System.Net.Http/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -1554,30 +1568,33 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
-      "System.Text.Encodings.Web/8.0.0": {
-        "runtime": {
-          "lib/net7.0/System.Text.Encodings.Web.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
+      "System.Text.Encodings.Web/9.0.0": {
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
-        "runtimeTargets": {
-          "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll": {
-            "rid": "browser",
-            "assetType": "runtime",
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
           }
         }
       },
-      "System.Text.Json/8.0.4": {
+      "System.Text.Json/9.0.0": {
         "dependencies": {
-          "System.Text.Encodings.Web": "8.0.0"
+          "Microsoft.Bcl.AsyncInterfaces": "9.0.0",
+          "System.Buffers": "4.5.1",
+          "System.IO.Pipelines": "9.0.0",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "9.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "runtime": {
-          "lib/net7.0/System.Text.Json.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.724.31311"
+          "lib/netstandard2.0/System.Text.Json.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
           }
         }
       },
@@ -1764,47 +1781,47 @@
       "path": "iesi.collections/4.0.4",
       "hashPath": "iesi.collections.4.0.4.nupkg.sha512"
     },
-    "itext/9.0.0": {
+    "itext/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Y2nDUrXDO7eZ+dI2NZ10apW818OcgGklMWpLrVZ/P16rwSxpVyzjWZQjCgZVj8liSVhVDHy6eVJOrZah5KNhhQ==",
-      "path": "itext/9.0.0",
-      "hashPath": "itext.9.0.0.nupkg.sha512"
+      "sha512": "sha512-4aPC+8MlF78KX7/Ad0BusGpliO5RMNzJU/jOxoDrHLpP92go3fKcaULVIhuaX24gnaJpoCX5Xf+HfvhcBdEjYw==",
+      "path": "itext/9.1.0",
+      "hashPath": "itext.9.1.0.nupkg.sha512"
     },
-    "itext.bouncy-castle-adapter/9.0.0": {
+    "itext.bouncy-castle-adapter/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2IcE6/X6YMBr9dgxsSK+934zXqi7UcdsYHapaa+aD7LLHgcbEABzyVNzsTrVEcNO4XJAMLVtqk4MP8dcVNiyQw==",
-      "path": "itext.bouncy-castle-adapter/9.0.0",
-      "hashPath": "itext.bouncy-castle-adapter.9.0.0.nupkg.sha512"
+      "sha512": "sha512-1SVA5zIvvTX02+eIOTkYb7efwnY1oEmAPR2JuF15KcDTCp0eOPgRqfcujiDqR+xdxAqs8viFWvGZePcl7T0YhA==",
+      "path": "itext.bouncy-castle-adapter/9.1.0",
+      "hashPath": "itext.bouncy-castle-adapter.9.1.0.nupkg.sha512"
     },
-    "itext.commons/9.0.0": {
+    "itext.commons/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mfQuZz4beW2GOHMrtGay5iowg6WINBkHMm7hj38el3eDvWY3yLVZGrVxdWVRhEXJIdsXsBa3lPywxspsqi3rxg==",
-      "path": "itext.commons/9.0.0",
-      "hashPath": "itext.commons.9.0.0.nupkg.sha512"
+      "sha512": "sha512-oaUKSbmWg0zhOmyElnL+52yRvn+m39LxfqdXJGjHHR7ypC3MdOpfyb/GkQ4mFRMlXwyO2srLzgnZ+cN6zAjMXw==",
+      "path": "itext.commons/9.1.0",
+      "hashPath": "itext.commons.9.1.0.nupkg.sha512"
     },
-    "itext7/9.0.0": {
+    "itext7/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WcRaL2xYhRWJrNXHlfWi9Cr/YApvFtDSEMvJlnbbSEUyYzYcwk52QJL/IAiP4T/O5U+rkzn6dIIwbeITUzsBLA==",
-      "path": "itext7/9.0.0",
-      "hashPath": "itext7.9.0.0.nupkg.sha512"
+      "sha512": "sha512-xHRttMKi/9W7XDIIWRgMoau3Eo2+4JvctqN25X8a0k8uHFf56WgIMjFnGadH1nACJy+5ABi3XoWvJsUv20Wd2w==",
+      "path": "itext7/9.1.0",
+      "hashPath": "itext7.9.1.0.nupkg.sha512"
     },
-    "itext7.bouncy-castle-adapter/9.0.0": {
+    "itext7.bouncy-castle-adapter/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JJccn14lsKhhyevA1rXwahZVtFjkmrB0JybNgxeAenRxkv8fxGX2ToC1BD5Il4vCIU5m2QN/n1LGJ7dehWqc1A==",
-      "path": "itext7.bouncy-castle-adapter/9.0.0",
-      "hashPath": "itext7.bouncy-castle-adapter.9.0.0.nupkg.sha512"
+      "sha512": "sha512-FN8QFUA9oYnrCNRZrDYWpK8gU8AFszaKbSwuYS7nFiPr5WlMcPREb6G+JJ9NO1BEKaqJbRH079OJgAgjmQpRjg==",
+      "path": "itext7.bouncy-castle-adapter/9.1.0",
+      "hashPath": "itext7.bouncy-castle-adapter.9.1.0.nupkg.sha512"
     },
-    "itext7.commons/9.0.0": {
+    "itext7.commons/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bUHYG6cyScEJYMnqpNm1oOHxLLJ3LTpCbGut20vZkRlVlAZ5wBrRLQcsIhEJt7QdfAk7qw4EK4IT0eVjHWPsJw==",
-      "path": "itext7.commons/9.0.0",
-      "hashPath": "itext7.commons.9.0.0.nupkg.sha512"
+      "sha512": "sha512-kMLUNOWPy3NnZ0cM9lW7mc7H65jVHYxo1nOP0D+sTs6KPRDp+ODNYM+XNIvDU7PGlXrzPiPWOMMygKQ6h/vT8Q==",
+      "path": "itext7.commons/9.1.0",
+      "hashPath": "itext7.commons.9.1.0.nupkg.sha512"
     },
     "K4os.Compression.LZ4/1.3.8": {
       "type": "package",
@@ -1826,6 +1843,13 @@
       "sha512": "sha512-Wp2F7BamQ2Q/7Hk834nV9vRQapgcr8kgv9Jvfm8J3D0IhDqZMMl+a2yxUq5ltJitvXvQfB8W6K4F4fCbw/P6YQ==",
       "path": "k4os.hash.xxhash/1.0.8",
       "hashPath": "k4os.hash.xxhash.1.0.8.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-owmu2Cr3IQ8yQiBleBHlGk8dSQ12oaF2e7TpzwJKEl4m84kkZJjEY1n33L67Y3zM5jPOjmmbdHjbfiL0RqcMRQ==",
+      "path": "microsoft.bcl.asyncinterfaces/9.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.9.0.0.nupkg.sha512"
     },
     "Microsoft.DotNet.PlatformAbstractions/1.1.0": {
       "type": "package",
@@ -1911,12 +1935,12 @@
       "path": "microsoft.win32.registry/4.3.0",
       "hashPath": "microsoft.win32.registry.4.3.0.nupkg.sha512"
     },
-    "MySql.Data/9.1.0": {
+    "MySql.Data/9.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-E4t/IQzcXg4nYGqrGkoGwwSWA1V2L+LKzVddPABAPcj2i6RESP2fcZQ4XFC0Wv+Cq4DlgR3DYhX/fGaZ3VxCPQ==",
-      "path": "mysql.data/9.1.0",
-      "hashPath": "mysql.data.9.1.0.nupkg.sha512"
+      "sha512": "sha512-S/O4qGf5+fG64d+IHXpZ+wC08m0HsqIwb2xtEY41jdjXYdV2uEtdEy+Jo2ObQamGj0/GD7X6LUCBbh4eb3fKew==",
+      "path": "mysql.data/9.2.0",
+      "hashPath": "mysql.data.9.2.0.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",
@@ -2226,12 +2250,12 @@
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
     },
-    "System.IO.Pipelines/6.0.3": {
+    "System.IO.Pipelines/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
-      "path": "system.io.pipelines/6.0.3",
-      "hashPath": "system.io.pipelines.6.0.3.nupkg.sha512"
+      "sha512": "sha512-eA3cinogwaNB4jdjQHOP3Z3EuyiDII7MT35jgtnsA4vkn0LUrrSHsU0nzHTzFzmaFYeKV7MYyMxOocFzsBHpTw==",
+      "path": "system.io.pipelines/9.0.0",
+      "hashPath": "system.io.pipelines.9.0.0.nupkg.sha512"
     },
     "System.Linq/4.3.0": {
       "type": "package",
@@ -2253,6 +2277,13 @@
       "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "System.Memory/4.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "path": "system.memory/4.5.5",
+      "hashPath": "system.memory.4.5.5.nupkg.sha512"
     },
     "System.Net.Http/4.3.0": {
       "type": "package",
@@ -2492,19 +2523,19 @@
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
-    "System.Text.Encodings.Web/8.0.0": {
+    "System.Text.Encodings.Web/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
-      "path": "system.text.encodings.web/8.0.0",
-      "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
+      "sha512": "sha512-e2hMgAErLbKyUUwt18qSBf9T5Y+SFAL3ZedM8fLupkVj8Rj2PZ9oxQ37XX2LF8fTO1wNIxvKpihD7Of7D/NxZw==",
+      "path": "system.text.encodings.web/9.0.0",
+      "hashPath": "system.text.encodings.web.9.0.0.nupkg.sha512"
     },
-    "System.Text.Json/8.0.4": {
+    "System.Text.Json/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bAkhgDJ88XTsqczoxEMliSrpijKZHhbJQldhAmObj/RbrN3sU5dcokuXmWJWsdQAhiMJ9bTayWsL1C9fbbCRhw==",
-      "path": "system.text.json/8.0.4",
-      "hashPath": "system.text.json.8.0.4.nupkg.sha512"
+      "sha512": "sha512-js7+qAu/9mQvnhA4EfGMZNEzXtJCDxgkgj8ohuxq/Qxv+R56G+ljefhiJHOxTNiw54q8vmABCWUwkMulNdlZ4A==",
+      "path": "system.text.json/9.0.0",
+      "hashPath": "system.text.json.9.0.0.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.1": {
       "type": "package",

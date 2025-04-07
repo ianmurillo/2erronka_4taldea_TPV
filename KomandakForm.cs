@@ -25,9 +25,11 @@ namespace _2taldea
         {
             try
             {
-                var mesas = KomandakKudeatzailea.ObtenerMesas(sessionFactory);
+                var mesas = KomandakKudeatzailea.ObtenerMesas(sessionFactory)
+                                .Where(m => m.Habilitado) // Filtrar solo las mesas habilitadas
+                                .ToList();
 
-                int filas = 3;
+                int filas = 2;
                 int buttonWidth = 175;
                 int buttonHeight = 175;
                 int buttonSpacingHorizontal = 40;
@@ -49,7 +51,8 @@ namespace _2taldea
                         BackColor = ObtenerColorMesa(mesa.Id),
                         ForeColor = Color.White,
                         FlatStyle = FlatStyle.Flat,
-                        Tag = mesa.Id
+                        Tag = mesa.Id,
+                        Enabled = mesa.Habilitado // Deshabilitar botón si la mesa no está habilitada
                     };
 
                     int column = i % mesasPorFila;
@@ -84,7 +87,6 @@ namespace _2taldea
             }
         }
 
-
         private void BtnMesa_Click(object sender, EventArgs e)
         {
             try
@@ -93,15 +95,12 @@ namespace _2taldea
                 if (btn != null)
                 {
                     int mahaila_id = (int)btn.Tag;
-
-                    // Usamos el 'nombreUsuario' que ya tienes como propiedad del formulario
                     string userName = this.nombreUsuario;
 
-                    // Crear la instancia de MesaDetallesForm con los tres parámetros
                     MesaDetallesForm detallesForm = new MesaDetallesForm(mahaila_id, sessionFactory, userName);
                     detallesForm.ShowDialog();
 
-                    // Solo actualiza el color si ha habido un cambio en la base de datos
+                    // Actualizar color de la mesa después de cerrar detalles
                     btn.BackColor = ObtenerColorMesa(mahaila_id);
                 }
             }
@@ -110,8 +109,6 @@ namespace _2taldea
                 MessageBox.Show($"Errorea mahaia aukeratzean: {ex.Message}", "Arazoak", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void BtnAtzera_Click(object sender, EventArgs e)
         {

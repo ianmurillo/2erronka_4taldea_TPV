@@ -8,6 +8,7 @@
         private TabPage bebidasTab;
         private TabPage primerPlatoTab;
         private TabPage segundoPlatoTab;
+        private TabPage postreaTab;
 
         protected override void Dispose(bool disposing)
         {
@@ -25,6 +26,7 @@
             bebidasTab = new TabPage();
             primerPlatoTab = new TabPage();
             segundoPlatoTab = new TabPage();
+            postreaTab = new TabPage();
             tabControl.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,6 +47,7 @@
             tabControl.Controls.Add(bebidasTab);
             tabControl.Controls.Add(primerPlatoTab);
             tabControl.Controls.Add(segundoPlatoTab);
+            tabControl.Controls.Add(postreaTab);
             tabControl.Dock = DockStyle.Fill;
             tabControl.Location = new Point(0, 0);
             tabControl.Name = "tabControl";
@@ -81,6 +84,15 @@
             segundoPlatoTab.Size = new Size(1788, 902);
             segundoPlatoTab.TabIndex = 2;
             segundoPlatoTab.Text = "Bigarren_Platera";
+            // 
+            // postreaTab
+            // 
+            postreaTab.BackColor = Color.FromArgb(9, 23, 37);
+            postreaTab.Location = new Point(4, 24);
+            postreaTab.Name = "postreaTab";
+            postreaTab.Size = new Size(1788, 902);
+            postreaTab.TabIndex = 3;
+            postreaTab.Text = "Postrea";
             // 
             // MesaDetallesForm
             // 

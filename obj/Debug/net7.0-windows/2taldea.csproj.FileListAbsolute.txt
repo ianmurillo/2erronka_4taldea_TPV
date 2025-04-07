@@ -277,7 +277,6 @@ C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\runtimes\win
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Diagnostics.EventLog.Messages.dll
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Diagnostics.EventLog.dll
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Text.Encoding.CodePages.dll
-C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\2taldea.csproj.CopyComplete
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\2taldea.genruntimeconfig.cache
@@ -286,3 +285,5 @@ C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\Langilea.hbm
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\Mahaia.hbm.xml
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\Almazena.hbm.xml
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\EskaeraPlatera.hbm.xml
+C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\bin\Debug\net7.0-windows\AlmazenaPlatera.hbm.xml

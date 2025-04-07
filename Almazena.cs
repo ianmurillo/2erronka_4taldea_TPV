@@ -19,8 +19,8 @@ namespace _2taldea
         public virtual string CreatedAt { get; set; }
         public virtual int? CreatedBy { get; set; }
         public virtual string UpdatedAt { get; set; }
-        public virtual int? UpdateBy { get; set; }
-        public virtual DateTime? DeletedAt { get; set; }
+        public virtual int? UpdatedBy { get; set; }
+        public virtual string DeletedAt { get; set; }
         public virtual int? DeletedBy { get; set; }
     }
 }

@@ -46,7 +46,7 @@
           "dependencies": {
             "MySql.Data": {
               "target": "Package",
-              "version": "[9.1.0, )"
+              "version": "[9.2.0, )"
             },
             "NHibernate": {
               "target": "Package",
@@ -58,15 +58,15 @@
             },
             "itext7": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.1.0, )"
             },
             "itext7.bouncy-castle-adapter": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.1.0, )"
             },
             "itext7.commons": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.1.0, )"
             }
           },
           "imports": [

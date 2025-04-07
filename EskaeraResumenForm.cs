@@ -52,79 +52,76 @@ namespace _2taldea
             {
                 foreach (var eskaera in eskaerak)
                 {
-                    // Obtener el Eskaera_platera correspondiente
-                    var eskaeraPlatera = session.QueryOver<EskaeraPlatera>()
-                                                .Where(ep => ep.Eskaera.Id == eskaera.Id)
-                                                .SingleOrDefault();
+                    // Obtener todos los EskaeraPlatera correspondientes
+                    var eskaerakPlatera = session.QueryOver<EskaeraPlatera>()
+                                                 .Where(ep => ep.Eskaera.Id == eskaera.Id)
+                                                 .List();  // Esto devuelve una lista de EskaeraPlatera
 
-                    // Si no encontramos el Eskaera_platera, saltamos a la siguiente iteración
-                    if (eskaeraPlatera == null) continue;
-
-                    // Obtener el Platera correspondiente a partir del platera_id en Eskaera_platera
-                    var platera = session.Get<Platera>(eskaeraPlatera.Platera.Id);
-                    if (platera == null) continue;
-
-                    FlowLayoutPanel panelProducto = new FlowLayoutPanel
+                    // Recorrer la lista de EskaeraPlatera
+                    foreach (var eskaeraPlatera in eskaerakPlatera)
                     {
-                        FlowDirection = FlowDirection.LeftToRight,
-                        AutoSize = true,
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                        Padding = new Padding(0, 10, 0, 10),
-                        Margin = new Padding(0, 0, 0, 10),
-                        Width = flowLayoutPanelPedidos.ClientSize.Width - 10
-                    };
+                        // Obtener el Platera correspondiente a partir del platera_id en EskaeraPlatera
+                        var platera = session.Get<Platera>(eskaeraPlatera.Platera.Id);
+                        if (platera == null) continue;
 
-                    FlowLayoutPanel innerPanel = new FlowLayoutPanel
-                    {
-                        FlowDirection = FlowDirection.LeftToRight,
-                        AutoSize = true,
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                        Width = panelProducto.Width - 20,
-                        Margin = new Padding(0)
-                    };
+                        FlowLayoutPanel panelProducto = new FlowLayoutPanel
+                        {
+                            FlowDirection = FlowDirection.LeftToRight,
+                            AutoSize = true,
+                            AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                            Padding = new Padding(0, 10, 0, 10),
+                            Margin = new Padding(0, 0, 0, 10),
+                            Width = flowLayoutPanelPedidos.ClientSize.Width - 10
+                        };
 
-                    Label lblProducto = new Label
-                    {
-                        Text = platera.Izena,  // Accedemos a Izena de la tabla Platera
-                        Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point),
-                        ForeColor = System.Drawing.Color.White,
-                        AutoSize = true
-                    };
-                    innerPanel.Controls.Add(lblProducto);
+                        FlowLayoutPanel innerPanel = new FlowLayoutPanel
+                        {
+                            FlowDirection = FlowDirection.LeftToRight,
+                            AutoSize = true,
+                            AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                            Width = panelProducto.Width - 20,
+                            Margin = new Padding(0)
+                        };
 
-                    Label lblPrecio = new Label
-                    {
-                        Text = $"{platera.Prezioa}€",  // Accedemos a Prezioa de la tabla Platera
-                        Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point),
-                        ForeColor = System.Drawing.Color.White,
-                        AutoSize = true
-                    };
-                    lblPrecio.Anchor = AnchorStyles.Right;
-                    innerPanel.Controls.Add(lblPrecio);
+                        Label lblProducto = new Label
+                        {
+                            Text = platera.Izena,  // Accedemos a Izena de la tabla Platera
+                            Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point),
+                            ForeColor = System.Drawing.Color.White,
+                            AutoSize = true
+                        };
+                        innerPanel.Controls.Add(lblProducto);
 
-                    panelProducto.Controls.Add(innerPanel);
-                    flowLayoutPanelPedidos.Controls.Add(panelProducto);
+                        Label lblPrecio = new Label
+                        {
+                            Text = $"{platera.Prezioa}€",  // Accedemos a Prezioa de la tabla Platera
+                            Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point),
+                            ForeColor = System.Drawing.Color.White,
+                            AutoSize = true
+                        };
+                        lblPrecio.Anchor = AnchorStyles.Right;
+                        innerPanel.Controls.Add(lblPrecio);
 
-                    Label lblLinea = new Label
-                    {
-                        Text = string.Empty,
-                        Height = 2,
-                        BackColor = System.Drawing.Color.White,
-                        Dock = DockStyle.Top,
-                        Width = flowLayoutPanelPedidos.ClientSize.Width
-                    };
-                    flowLayoutPanelPedidos.Controls.Add(lblLinea);
+                        panelProducto.Controls.Add(innerPanel);
+                        flowLayoutPanelPedidos.Controls.Add(panelProducto);
 
-                    totalPrecioa += (float)platera.Prezioa;  // Conversión explícita de double a float
+                        Label lblLinea = new Label
+                        {
+                            Text = string.Empty,
+                            Height = 2,
+                            BackColor = System.Drawing.Color.White,
+                            Dock = DockStyle.Top,
+                            Width = flowLayoutPanelPedidos.ClientSize.Width
+                        };
+                        flowLayoutPanelPedidos.Controls.Add(lblLinea);
+
+                        totalPrecioa += (float)platera.Prezioa;  // Conversión explícita de double a float
+                    }
                 }
             }
 
             labelPrezioa.Text = $"Prezioa: {totalPrecioa}€";
         }
-
-
-
-
 
         private void BtnAtzera_Click(object sender, EventArgs e)
         {
@@ -133,8 +130,8 @@ namespace _2taldea
 
         private void btnEskaeraSortu_Click(object sender, EventArgs e)
         {
-            // Definir la carpeta de destino
-            string pdfDirectory = @"C:\Info ez nub\2taldea\bin\Debug\net7.0-windows\pdf";
+            // Definir la carpeta de destino dentro del directorio de la aplicación
+            string pdfDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fakturak");
 
             // Asegurarse de que la carpeta exista
             if (!Directory.Exists(pdfDirectory))
@@ -147,131 +144,149 @@ namespace _2taldea
             string fileName = $"EskaeraResumen_{timestamp}.pdf";
             string path = Path.Combine(pdfDirectory, fileName);
 
-            using (PdfWriter writer = new PdfWriter(path))
-            using (PdfDocument pdf = new PdfDocument(writer))
-            using (Document document = new Document(pdf))
+            try
             {
-                PdfFont regularFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
-                PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-
-                PdfColor burlyWoodColor = new DeviceRgb(222, 184, 135);
-
-                Table headerTable = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
-                headerTable.AddCell(new Cell().Add(new Paragraph("Michisuji")
-                    .SetFont(boldFont)
-                    .SetFontSize(20)
-                    .SetFontColor(ColorConstants.BLACK))
-                    .SetBorder(Border.NO_BORDER));
-
-                try
+                using (ISession session = sessionFactory.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())  // Iniciar transacción
                 {
-                    PdfImage logo = new PdfImage(ImageDataFactory.Create("C:\\Info ez nub\\2taldea\\logo.png"));
-                    logo.SetWidth(80).SetHeight(80);
-                    headerTable.AddCell(new Cell().Add(logo)
+                    foreach (var eskaera in eskaerak)
+                    {
+                        // Obtener la referencia del objeto desde la base de datos
+                        var eskaeraBD = session.Get<Eskaera>(eskaera.Id);
+                        if (eskaeraBD != null)
+                        {
+                            eskaeraBD.Ordainduta = true; // Marcar como pagado
+                            eskaeraBD.Egoera = false;   // Desactivar el pedido
+                            session.Update(eskaeraBD);  // Actualizar en la BD
+                        }
+                    }
+
+                    transaction.Commit(); // Guardar cambios
+                }
+
+                using (PdfWriter writer = new PdfWriter(path))
+                using (PdfDocument pdf = new PdfDocument(writer))
+                using (Document document = new Document(pdf))
+                {
+                    PdfFont regularFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+                    PdfColor burlyWoodColor = new DeviceRgb(222, 184, 135);
+
+                    Table headerTable = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
+                    headerTable.AddCell(new Cell().Add(new Paragraph("BIRESTAURANT")
+                        .SetFont(boldFont)
+                        .SetFontSize(20)
+                        .SetFontColor(ColorConstants.BLACK))
+                        .SetBorder(Border.NO_BORDER));
+
+                    try
+                    {
+                        PdfImage logo = new PdfImage(ImageDataFactory.Create("C:\\Info ez nub\\2taldea\\logo.png"));
+                        logo.SetWidth(80).SetHeight(80);
+                        headerTable.AddCell(new Cell().Add(logo)
+                            .SetTextAlignment(TextAlignment.RIGHT)
+                            .SetBorder(Border.NO_BORDER));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error cargando el logo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    document.Add(headerTable);
+                    document.Add(new Paragraph().SetBackgroundColor(burlyWoodColor).SetHeight(10));
+
+                    Table infoTable = new Table(UnitValue.CreatePercentArray(new float[] { 50, 50 })).UseAllAvailableWidth().SetMarginTop(10);
+                    infoTable.AddCell(new Cell().Add(new Paragraph($"NOREN FAKTURA\n{labelNombreUsuario.Text}")
+                        .SetFont(boldFont).SetFontSize(10)).SetBorder(Border.NO_BORDER));
+                    infoTable.AddCell(new Cell().Add(new Paragraph($"MAHAI ZENBAKIA\n{mahaila_id}\nDATA\n{DateTime.Now:dd.MM.yyyy}")
+                        .SetFont(boldFont).SetFontSize(10))
                         .SetTextAlignment(TextAlignment.RIGHT)
                         .SetBorder(Border.NO_BORDER));
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error cargando el logo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    document.Add(infoTable);
 
-                document.Add(headerTable);
-                document.Add(new Paragraph().SetBackgroundColor(burlyWoodColor).SetHeight(10));
+                    document.Add(new LineSeparator(new SolidLine()));
 
-                Table infoTable = new Table(UnitValue.CreatePercentArray(new float[] { 50, 50 })).UseAllAvailableWidth().SetMarginTop(10);
-                infoTable.AddCell(new Cell().Add(new Paragraph($"NOREN FAKTURA\n{labelNombreUsuario.Text}")
-                    .SetFont(boldFont).SetFontSize(10)).SetBorder(Border.NO_BORDER));
-                infoTable.AddCell(new Cell().Add(new Paragraph($"MAHAI ZENBAKIA\n{mahaila_id}\nDATA\n{DateTime.Now:dd.MM.yyyy}")
-                    .SetFont(boldFont).SetFontSize(10))
-                    .SetTextAlignment(TextAlignment.RIGHT)
-                    .SetBorder(Border.NO_BORDER));
-                document.Add(infoTable);
+                    Table totalTable = new Table(UnitValue.CreatePercentArray(new float[] { 70, 30 })).UseAllAvailableWidth().SetMarginTop(20);
+                    totalTable.AddCell(new Cell().Add(new Paragraph("Faktura Totala")
+                        .SetFont(boldFont).SetFontSize(16)).SetBorder(Border.NO_BORDER));
 
-                document.Add(new LineSeparator(new SolidLine()));
+                    // Inicializar totalPrecioa
+                    float totalPrecioa = 0;
 
-                Table totalTable = new Table(UnitValue.CreatePercentArray(new float[] { 70, 30 })).UseAllAvailableWidth().SetMarginTop(20);
-                totalTable.AddCell(new Cell().Add(new Paragraph("Faktura Totala")
-                    .SetFont(boldFont).SetFontSize(16)).SetBorder(Border.NO_BORDER));
-
-                // Inicializar totalPrecioa
-                float totalPrecioa = 0;
-
-                // Obtener los precios de los platos relacionados con las solicitudes
-                using (ISession session = sessionFactory.OpenSession())
-                {
-                    foreach (var eskaera in eskaerak)
+                    using (ISession session = sessionFactory.OpenSession())
                     {
-                        // Obtener la relación entre la tabla "Eskaera" y "EskaeraPlatera"
-                        var eskaeraPlatera = session.QueryOver<EskaeraPlatera>()
-                                                    .Where(ep => ep.Eskaera.Id == eskaera.Id)
-                                                    .SingleOrDefault();
+                        foreach (var eskaera in eskaerak)
+                        {
+                            var eskaerakPlatera = session.QueryOver<EskaeraPlatera>()
+                                                         .Where(ep => ep.Eskaera.Id == eskaera.Id)
+                                                         .List();
 
-                        if (eskaeraPlatera == null) continue;  // Si no encontramos la relación, saltamos
+                            foreach (var eskaeraPlatera in eskaerakPlatera)
+                            {
+                                var platera = session.Get<Platera>(eskaeraPlatera.Platera.Id);
+                                if (platera == null) continue;
 
-                        // Obtener el plato correspondiente en la tabla "Platera"
-                        var platera = session.Get<Platera>(eskaeraPlatera.Platera.Id);
-                        if (platera == null) continue;  // Si no encontramos el plato, saltamos
-
-                        totalPrecioa += (float)platera.Prezioa;  // Convertimos a float y sumamos
+                                totalPrecioa += (float)platera.Prezioa;
+                            }
+                        }
                     }
-                }
 
-                totalTable.AddCell(new Cell().Add(new Paragraph($"{totalPrecioa:0.00} €")
-                    .SetFont(boldFont).SetFontSize(16))
-                    .SetTextAlignment(TextAlignment.RIGHT)
-                    .SetBorder(Border.NO_BORDER));
-                document.Add(totalTable);
+                    totalTable.AddCell(new Cell().Add(new Paragraph($"{totalPrecioa:0.00} €")
+                        .SetFont(boldFont).SetFontSize(16))
+                        .SetTextAlignment(TextAlignment.RIGHT)
+                        .SetBorder(Border.NO_BORDER));
+                    document.Add(totalTable);
 
-                document.Add(new LineSeparator(new SolidLine()));
+                    document.Add(new LineSeparator(new SolidLine()));
 
-                Table descriptionTable = new Table(UnitValue.CreatePercentArray(new float[] { 70, 30 })).UseAllAvailableWidth().SetMarginTop(10);
-                descriptionTable.AddHeaderCell(new Cell().Add(new Paragraph("PRODUKTUA")
-                    .SetFont(boldFont).SetFontSize(10).SetBackgroundColor(ColorConstants.LIGHT_GRAY)));
-                descriptionTable.AddHeaderCell(new Cell().Add(new Paragraph("IMPORTEA")
-                    .SetFont(boldFont).SetFontSize(10).SetBackgroundColor(ColorConstants.LIGHT_GRAY)));
+                    Table descriptionTable = new Table(UnitValue.CreatePercentArray(new float[] { 70, 30 })).UseAllAvailableWidth().SetMarginTop(10);
+                    descriptionTable.AddHeaderCell(new Cell().Add(new Paragraph("PRODUKTUA")
+                        .SetFont(boldFont).SetFontSize(10).SetBackgroundColor(ColorConstants.LIGHT_GRAY)));
+                    descriptionTable.AddHeaderCell(new Cell().Add(new Paragraph("INPORTEA")
+                        .SetFont(boldFont).SetFontSize(10).SetBackgroundColor(ColorConstants.LIGHT_GRAY)));
 
-                // Agregar los productos y precios al PDF
-                using (ISession session = sessionFactory.OpenSession())
-                {
-                    foreach (var eskaera in eskaerak)
+                    using (ISession session = sessionFactory.OpenSession())
                     {
-                        var eskaeraPlatera = session.QueryOver<EskaeraPlatera>()
-                                                    .Where(ep => ep.Eskaera.Id == eskaera.Id)
-                                                    .SingleOrDefault();
+                        foreach (var eskaera in eskaerak)
+                        {
+                            var eskaerakPlatera = session.QueryOver<EskaeraPlatera>()
+                                                         .Where(ep => ep.Eskaera.Id == eskaera.Id)
+                                                         .List();
 
-                        if (eskaeraPlatera == null) continue;
+                            foreach (var eskaeraPlatera in eskaerakPlatera)
+                            {
+                                var platera = session.Get<Platera>(eskaeraPlatera.Platera.Id);
+                                if (platera == null) continue;
 
-                        var platera = session.Get<Platera>(eskaeraPlatera.Platera.Id);
-                        if (platera == null) continue;
-
-                        descriptionTable.AddCell(new Cell().Add(new Paragraph(platera.Izena)  // Acceder al nombre del plato
-                            .SetFont(regularFont).SetFontSize(10)));
-                        descriptionTable.AddCell(new Cell().Add(new Paragraph($"{platera.Prezioa:0.00} €")  // Acceder al precio del plato
-                            .SetFont(regularFont).SetFontSize(10))
-                            .SetTextAlignment(TextAlignment.RIGHT));
+                                descriptionTable.AddCell(new Cell().Add(new Paragraph(platera.Izena)
+                                    .SetFont(regularFont).SetFontSize(10)));
+                                descriptionTable.AddCell(new Cell().Add(new Paragraph($"{platera.Prezioa} €")
+                                    .SetFont(regularFont).SetFontSize(10)));
+                            }
+                        }
                     }
+                    document.Add(descriptionTable);
                 }
 
-                descriptionTable.AddCell(new Cell().Add(new Paragraph("Guztira")
-                    .SetFont(boldFont).SetFontSize(10)).SetBackgroundColor(ColorConstants.LIGHT_GRAY));
-                descriptionTable.AddCell(new Cell().Add(new Paragraph($"{totalPrecioa:0.00} €")
-                    .SetFont(boldFont).SetFontSize(10)).SetBackgroundColor(ColorConstants.LIGHT_GRAY)
-                    .SetTextAlignment(TextAlignment.RIGHT));
-                document.Add(descriptionTable);
-
-                document.Add(new Paragraph("\nEskerrik asko zure eskaeragatik!")
-                    .SetFont(regularFont).SetFontSize(10).SetTextAlignment(TextAlignment.CENTER));
+                MessageBox.Show($"Pedido marcado como pagado y PDF generado correctamente en: {path}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show($"PDF-a sortuta:\n{path}", "Ongi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al procesar el pedido: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
 
         private void EskaeraResumenForm_Load(object sender, EventArgs e)
         {
+            // Mostrar el nombre del usuario
+            labelNombreUsuario.Text = $"{labelNombreUsuario.Text}";
 
+            // Mostrar el identificador de la mesa en la etiqueta correspondiente
+            labelMesa.Text = $"Mesa: {mahaila_id}";
+
+            // Cargar y mostrar los datos de los pedidos al cargar el formulario
+            CargarDatos();
         }
     }
 }
-
