@@ -33,7 +33,7 @@ namespace _2taldea
                                 .Where(m => m.Habilitado) // Filtrar solo las mesas habilitadas
                                 .ToList();
 
-                int filas = 3;
+                int filas = 2;
                 int buttonWidth = 175;
                 int buttonHeight = 175;
                 int buttonSpacingHorizontal = 40;

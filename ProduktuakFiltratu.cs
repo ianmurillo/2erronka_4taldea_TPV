@@ -20,11 +20,7 @@ namespace _2taldea
             this.aplicarFiltro = aplicarFiltro;
         }
 
-        private void btnPrezioa_Click(object sender, EventArgs e)
-        {
-            aplicarFiltro("Prezioa");
-            this.Close();
-        }
+       
 
         private void btnStocka_Click(object sender, EventArgs e)
         {

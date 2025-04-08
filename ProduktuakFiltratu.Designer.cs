@@ -3,7 +3,6 @@
     partial class ProduktuakFiltratu
     {
         private System.ComponentModel.IContainer components = null;
-        private Button btnPrezioa;
         private Button btnStocka;
 
         protected override void Dispose(bool disposing)
@@ -17,24 +16,8 @@
 
         private void InitializeComponent()
         {
-            btnPrezioa = new Button();
             btnStocka = new Button();
             SuspendLayout();
-            // 
-            // btnPrezioa
-            // 
-            btnPrezioa.BackColor = Color.FromArgb(186, 69, 13);
-            btnPrezioa.FlatStyle = FlatStyle.Flat;
-            btnPrezioa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPrezioa.ForeColor = Color.White;
-            btnPrezioa.Location = new Point(50, 50);
-            btnPrezioa.Name = "btnPrezioa";
-            btnPrezioa.Size = new Size(150, 50);
-            btnPrezioa.TabIndex = 0;
-            btnPrezioa.Text = "Filtratu Prezioa";
-            btnPrezioa.UseVisualStyleBackColor = false;
-            btnPrezioa.Click += btnPrezioa_Click;
-            // 
             // btnStocka
             // 
             btnStocka.BackColor = Color.FromArgb(186, 69, 13);
@@ -54,8 +37,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(9, 23, 37);
-            ClientSize = new Size(250, 200);
-            Controls.Add(btnPrezioa);
+            ClientSize = new Size(250, 275);
             Controls.Add(btnStocka);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "ProduktuakFiltratu";

@@ -171,7 +171,7 @@ namespace _2taldea
                     PdfFont regularFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
                     PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-                    PdfColor burlyWoodColor = new DeviceRgb(222, 184, 135);
+                    PdfColor burlyWoodColor = new DeviceRgb(9, 23, 37);
 
                     Table headerTable = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
                     headerTable.AddCell(new Cell().Add(new Paragraph("BIRESTAURANT")

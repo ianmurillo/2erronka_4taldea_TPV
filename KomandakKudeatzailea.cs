@@ -111,7 +111,8 @@ namespace _2taldea
                             {
                                 Eskaera = eskaera,  // Usar la Eskaera existente o recién creada
                                 Platera = plato,
-                                Egoera = true
+                                Egoera = true,
+                                EskaeraOrdua = DateTime.Now
                             };
                             session.Save(nuevaEskaeraPlatera);
                         }
