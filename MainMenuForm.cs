@@ -60,5 +60,11 @@ namespace _2taldea
             TxatForm txatForm = new TxatForm(nombreUsuario);
             txatForm.Show();
         }
+
+        private void btnEguraldia_Click(object sender, EventArgs e)
+        {
+            EguraldiaForm eguraldiaForm = new EguraldiaForm(nombreUsuario);
+            eguraldiaForm.Show();
+        }
     }
 }

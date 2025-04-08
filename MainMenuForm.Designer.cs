@@ -29,6 +29,7 @@ namespace _2taldea
             labelMenua = new Label();
             pictureBoxLogo = new PictureBox();
             buttonTxat = new Button();
+            btnEguraldia = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             SuspendLayout();
             // 
@@ -129,7 +130,7 @@ namespace _2taldea
             buttonTxat.FlatStyle = FlatStyle.Flat;
             buttonTxat.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             buttonTxat.ForeColor = Color.White;
-            buttonTxat.Location = new Point(796, 650);
+            buttonTxat.Location = new Point(550, 650);
             buttonTxat.Name = "buttonTxat";
             buttonTxat.Size = new Size(332, 188);
             buttonTxat.TabIndex = 7;
@@ -137,12 +138,27 @@ namespace _2taldea
             buttonTxat.UseVisualStyleBackColor = false;
             buttonTxat.Click += buttonTxat_Click;
             // 
+            // btnEguraldia
+            // 
+            btnEguraldia.BackColor = Color.FromArgb(186, 69, 13);
+            btnEguraldia.FlatStyle = FlatStyle.Flat;
+            btnEguraldia.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEguraldia.ForeColor = Color.White;
+            btnEguraldia.Location = new Point(1045, 650);
+            btnEguraldia.Name = "btnEguraldia";
+            btnEguraldia.Size = new Size(332, 188);
+            btnEguraldia.TabIndex = 8;
+            btnEguraldia.Text = "Eguraldia";
+            btnEguraldia.UseVisualStyleBackColor = false;
+            btnEguraldia.Click += btnEguraldia_Click;
+            // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(9, 23, 37);
             ClientSize = new Size(1831, 993);
+            Controls.Add(btnEguraldia);
             Controls.Add(buttonTxat);
             Controls.Add(pictureBoxLogo);
             Controls.Add(labelMenua);
@@ -171,5 +187,6 @@ namespace _2taldea
         private Label labelMenua;
         private PictureBox pictureBoxLogo;
         private Button buttonTxat;
+        private Button btnEguraldia;
     }
 }

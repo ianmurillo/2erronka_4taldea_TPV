@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xaduY21rRTKGbYUqbYHj5Ctg8fOLqNA4JTBmpMpLxFpeYcpNG3F2YokXj1F0vSG6nVs+pjeCsCH0SsAUO6jhqA==",
+  "dgSpecHash": "HQ+jmC0AB3vowcpvpKpZanfr3lhGCRs6aoxa6X6NpXqZmFsboYaPhJLby7EQ8LWeW0cmv/QMkAOCs6yyiqqoBQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ianmu\\Documents\\2MG3\\Erronka2\\TPV\\2taldea.csproj",
   "expectedPackageFiles": [
@@ -32,7 +32,7 @@
     "C:\\Users\\ianmu\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
     "C:\\Users\\ianmu\\.nuget\\packages\\mysql.data\\9.2.0\\mysql.data.9.2.0.nupkg.sha512",
     "C:\\Users\\ianmu\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\ianmu\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\ianmu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ianmu\\.nuget\\packages\\nhibernate\\5.5.2\\nhibernate.5.5.2.nupkg.sha512",
     "C:\\Users\\ianmu\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\ianmu\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
