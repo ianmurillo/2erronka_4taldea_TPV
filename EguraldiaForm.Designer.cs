@@ -8,6 +8,7 @@
         private FlowLayoutPanel flowLayoutPanelEguraldia;
         private Button btnAtzera;
         private PictureBox pictureBoxLogo;
+        private ComboBox comboBoxFiltro;
 
         protected override void Dispose(bool disposing)
         {
@@ -25,8 +26,11 @@
             flowLayoutPanelEguraldia = new FlowLayoutPanel();
             btnAtzera = new Button();
             pictureBoxLogo = new PictureBox();
+            comboBoxFiltro = new ComboBox();
+
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             SuspendLayout();
+
             // 
             // labelNombreUsuario
             // 
@@ -38,8 +42,9 @@
             labelNombreUsuario.Size = new Size(75, 32);
             labelNombreUsuario.TabIndex = 1;
             labelNombreUsuario.Text = "Izena";
+
             // 
-            // labelLaburpena
+            // labelTitulo
             // 
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
@@ -49,6 +54,7 @@
             labelTitulo.Size = new Size(178, 45);
             labelTitulo.TabIndex = 2;
             labelTitulo.Text = "Eguraldia";
+
             // 
             // flowLayoutPanelEguraldia
             // 
@@ -58,10 +64,24 @@
             flowLayoutPanelEguraldia.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanelEguraldia.Location = new Point(321, 250);
             flowLayoutPanelEguraldia.Name = "flowLayoutPanelEguraldia";
-            flowLayoutPanelEguraldia.Size = new Size(1197, 600);
+            flowLayoutPanelEguraldia.Size = new Size(1050, 600);
             flowLayoutPanelEguraldia.TabIndex = 3;
             flowLayoutPanelEguraldia.WrapContents = false;
-            //
+
+            // 
+            // comboBoxFiltro
+            // 
+            comboBoxFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFiltro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBoxFiltro.Items.AddRange(new object[] { "Denak", "Gaur", "Bihar", "Etzi" });
+            comboBoxFiltro.SelectedIndex = 0;
+            comboBoxFiltro.Location = new Point(900, 120);
+            comboBoxFiltro.Name = "comboBoxFiltro";
+            comboBoxFiltro.Size = new Size(200, 30);
+            comboBoxFiltro.TabIndex = 4;
+            comboBoxFiltro.SelectedIndexChanged += ComboBoxFiltro_SelectedIndexChanged;
+
+            // 
             // btnAtzera
             // 
             btnAtzera.BackColor = Color.Red;
@@ -75,7 +95,8 @@
             btnAtzera.Text = "Atzera";
             btnAtzera.UseVisualStyleBackColor = false;
             btnAtzera.Click += BtnAtzera_Click;
-            //
+
+            // 
             // pictureBoxLogo
             // 
             pictureBoxLogo.Image = Properties.Resources.logo;
@@ -85,6 +106,7 @@
             pictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogo.TabIndex = 2;
             pictureBoxLogo.TabStop = false;
+
             // 
             // EguraldiaForm
             // 
@@ -94,6 +116,7 @@
             ClientSize = new Size(1813, 1100);
             Controls.Add(labelNombreUsuario);
             Controls.Add(labelTitulo);
+            Controls.Add(comboBoxFiltro);
             Controls.Add(flowLayoutPanelEguraldia);
             Controls.Add(btnAtzera);
             Controls.Add(pictureBoxLogo);
@@ -101,6 +124,7 @@
             Name = "EguraldiaForm";
             WindowState = FormWindowState.Maximized;
             Load += EguraldiaForm_Load;
+
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
