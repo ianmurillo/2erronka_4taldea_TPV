@@ -3,12 +3,6 @@
     partial class TxatForm
     {
         private System.ComponentModel.IContainer components = null;
-        private ListBox lstMessages;
-        private TextBox txtMessage;
-        private Button btnSend;
-        private Button btnLogout;
-        private Label labelMenua;
-        private PictureBox pictureBoxLogo;
 
         protected override void Dispose(bool disposing)
         {
