@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.VisualBasic;
 
 namespace _2taldea
 {
@@ -124,10 +125,13 @@ namespace _2taldea
             if (panelChat == null) return;
 
             // Separar el nombre del remitente del mensaje
+            message = message.Trim();
             var parts = message.Split(new char[] { '>' }, 2);
             if (parts.Length < 2) return;
             string senderName = parts[0];
-            string msg = Decrypt(parts[1],encryptCode);
+            string msg = Decrypt(parts[1], encryptCode);
+
+            message = senderName + ">" + msg;
 
             bool isUser = (senderName.Trim() == this.izena.Trim());
 

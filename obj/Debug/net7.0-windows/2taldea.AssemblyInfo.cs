@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2taldea")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81953613791ae8c538c2771ce572506a7a77dee1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95fc663257ed92c9f11533587b62d8c9d350dd75")]
 [assembly: System.Reflection.AssemblyProductAttribute("2taldea")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2taldea")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
