@@ -128,6 +128,26 @@ namespace _2taldea
                 return false;
             }
         }
+
+        public static bool ObtenerPermisoTxatDelUsuario(string userName, ISessionFactory sessionFactory)
+        {
+            using (ISession session = sessionFactory.OpenSession())
+            {
+                var langilea = session.QueryOver<Langilea>()
+                                     .Where(l => l.Izena == userName) // Usa "Izena" para buscar por nombre
+                                     .SingleOrDefault();
+
+                if (langilea != null)
+                {
+                    return langilea.Txat;  // Devuelve el valor de la columna Txat
+                }
+                else
+                {
+                    throw new Exception($"No se encontró el trabajador con el nombre de usuario '{userName}'.");
+                }
+            }
+        }
+
         public static int ObtenerIdDelUsuario(string userName, ISessionFactory sessionFactory)
         {
             using (ISession session = sessionFactory.OpenSession())

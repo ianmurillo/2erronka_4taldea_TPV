@@ -17,7 +17,7 @@ namespace _2taldea
         public virtual DateTime CreatedAt { get; set; }
         public virtual DateTime? UpdatedAt { get; set; }
         public virtual DateTime? DeletedAt { get; set; }
-        public virtual bool? Txat { get; set; }
+        public virtual bool Txat { get; set; }
 
         public virtual string UserName { get; set; }
     }

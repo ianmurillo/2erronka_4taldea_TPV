@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using NHibernate; // Asegúrate de tener esta referencia
+using NHibernate;
+using NHibernate.Cfg;
 
 namespace _2taldea
 {
@@ -11,12 +12,27 @@ namespace _2taldea
 
         public MainMenuForm(string nombreUsuario, ISessionFactory sessionFactory)
         {
+            ConfigureNHibernate();
             InitializeComponent();
             labelIzena.Text = nombreUsuario;
             this.nombreUsuario = nombreUsuario;
             this.sessionFactory = sessionFactory; // Guardar la instancia de ISessionFactory
         }
 
+        private void ConfigureNHibernate()
+        {
+            try
+            {
+                var configuration = new Configuration();
+                configuration.Configure(); // Carga la configuración desde App.config o hibernate.cfg.xml
+                sessionFactory = configuration.BuildSessionFactory();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errorea NHibernate konfiguratzean: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
             labelIzena.Text = nombreUsuario;
@@ -57,8 +73,15 @@ namespace _2taldea
 
         private void buttonTxat_Click(object sender, EventArgs e)
         {
-            TxatForm txatForm = new TxatForm(nombreUsuario);
-            txatForm.Show();
+            if (LoginKudeatzailea.ObtenerPermisoTxatDelUsuario(nombreUsuario, sessionFactory))
+            {
+                txat txatForm = new txat(nombreUsuario);
+                txatForm.Show();
+            }else
+            {
+                MessageBox.Show("Error, ez duzu txatean sartzeko baimenik");
+            }
+            
         }
 
         private void btnEguraldia_Click(object sender, EventArgs e)

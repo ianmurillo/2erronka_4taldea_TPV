@@ -40,7 +40,7 @@
     <Compile Update="ResumenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TxatForm.cs">
+    <Compile Update="txat.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
