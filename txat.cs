@@ -130,7 +130,7 @@ namespace _2taldea
             var parts = message.Split(new char[] { '>' }, 2);
             if (parts.Length < 2) return;
             string senderName = parts[0];
-            string msg = Decrypt(parts[1], encryptCode);
+            string msg = parts[1];
 
             message = senderName + ">" + msg;
 
@@ -177,8 +177,9 @@ namespace _2taldea
 
             if (!string.IsNullOrEmpty(message))
             {
+                string mensaje = this.izena + ">" + message;
                 string formattedMessage = this.izena + ">" + Encrypt(message,encryptCode);
-                AddMessageToPanel(formattedMessage, true);
+                AddMessageToPanel(mensaje, true);
                 writer.WriteLine(formattedMessage);
                 textBoxMessage.Clear();
             }
@@ -255,13 +256,14 @@ namespace _2taldea
                             if (IsProbablyBase64(encodedFile))
                             {
                                 SaveReceivedFile(fileName, encodedFile);
-                                AddMessageToPanel(remitente + " > " + fileName, false);
+                                AddMessageToPanel(remitente + ">" + fileName, false);
                                 return;
                             }
                         }
 
+                        String message2 = parts[0] + ">" + Decrypt(parts[1], encryptCode);
                         // Si no era un archivo, tratar como mensaje normal
-                        AddMessageToPanel(message, false);
+                        AddMessageToPanel(message2, false);
                     }));
                 }
             }
