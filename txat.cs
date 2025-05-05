@@ -15,7 +15,7 @@ namespace _2taldea
 {
     public partial class txat : Form
     {
-        private String encryptCode = "pat4ta";
+        private String encryptCode = "tralalerotralala";
         private TextBox textBoxMessage;
         private Button buttonSend;
         private ListBox listBoxChat;
@@ -32,6 +32,7 @@ namespace _2taldea
             this.izena = izena;
             Console.WriteLine(this.izena);
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             InitializeChatComponents();
         }
 

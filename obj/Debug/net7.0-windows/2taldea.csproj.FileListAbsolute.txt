@@ -207,7 +207,6 @@ C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\_2taldea.Pro
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\_2taldea.ProduktuakForm2.resources
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\_2taldea.Properties.Resources.resources
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\_2taldea.ResumenForm.resources
-C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\_2taldea.TxatForm.resources
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\2taldea.csproj.GenerateResource.cache
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\2taldea.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\2taldea.AssemblyInfoInputs.cache
@@ -386,3 +385,4 @@ C:\Users\Benatge\Desktop\Erronka2\2erronka_4taldea_TPV\obj\Debug\net7.0-windows\
 C:\Users\Benatge\Desktop\Erronka2\2erronka_4taldea_TPV\obj\Debug\net7.0-windows\2taldea.pdb
 C:\Users\Benatge\Desktop\Erronka2\2erronka_4taldea_TPV\obj\Debug\net7.0-windows\2taldea.genruntimeconfig.cache
 C:\Users\Benatge\Desktop\Erronka2\2erronka_4taldea_TPV\obj\Debug\net7.0-windows\ref\2taldea.dll
+C:\Users\ianmu\Documents\2MG3\Erronka2\TPV\obj\Debug\net7.0-windows\_2taldea.txat.resources

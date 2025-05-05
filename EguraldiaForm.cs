@@ -13,7 +13,7 @@ namespace _2taldea
     public partial class EguraldiaForm : Form
     {
         private string nombreUsuario;
-        private List<Panel> panelesDias = new List<Panel>();
+        private List<(string Fecha, Panel PanelDia)> panelesDias = new List<(string, Panel)>();
 
         public EguraldiaForm(string nombreUsuario)
         {
@@ -36,9 +36,13 @@ namespace _2taldea
 
                 flowLayoutPanelEguraldia.Controls.Clear();
                 panelesDias.Clear();
+                comboBoxFiltro.Items.Clear();
+                comboBoxFiltro.Items.Add("Denak");
 
                 foreach (var dia in dias)
                 {
+                    string fecha = dia.Attribute("fecha")?.Value ?? "N/A";
+
                     Panel panelDia = new Panel
                     {
                         Size = new Size(1100, 180),
@@ -46,7 +50,6 @@ namespace _2taldea
                         Margin = new Padding(10)
                     };
 
-                    string fecha = dia.Attribute("fecha")?.Value ?? "N/A";
                     string tempMax = dia.Element("temperatura_maximoa")?.Value ?? "-";
                     string tempMin = dia.Element("temperatura_minimoa")?.Value ?? "-";
                     string estadoCielo = dia.Element("zeruaren_egoera")?.Value ?? "-";
@@ -147,10 +150,15 @@ namespace _2taldea
                     });
 
                     panelDia.Controls.Add(panelMedidas);
-                    panelesDias.Add(panelDia);
+
+                    panelesDias.Add((fecha, panelDia));
+
+                    if (!comboBoxFiltro.Items.Contains(fecha))
+                        comboBoxFiltro.Items.Add(fecha);
                 }
 
-                AplicarFiltro(); // Mostrar el filtro seleccionado tras cargar
+                comboBoxFiltro.SelectedIndex = 0;
+                AplicarFiltro();
             }
             catch (Exception ex)
             {
@@ -192,27 +200,19 @@ namespace _2taldea
 
         private void AplicarFiltro()
         {
-            string filtro = comboBoxFiltro.SelectedItem.ToString();
+            string filtroFecha = comboBoxFiltro.SelectedItem?.ToString();
             flowLayoutPanelEguraldia.Controls.Clear();
 
-            switch (filtro)
+            if (string.IsNullOrEmpty(filtroFecha) || filtroFecha == "Denak")
             {
-                case "Gaur":
-                    if (panelesDias.Count > 0)
-                        flowLayoutPanelEguraldia.Controls.Add(panelesDias[0]);
-                    break;
-                case "Bihar":
-                    if (panelesDias.Count > 1)
-                        flowLayoutPanelEguraldia.Controls.Add(panelesDias[1]);
-                    break;
-                case "Etzi":
-                    if (panelesDias.Count > 2)
-                        flowLayoutPanelEguraldia.Controls.Add(panelesDias[2]);
-                    break;
-                default:
-                    foreach (var panel in panelesDias)
-                        flowLayoutPanelEguraldia.Controls.Add(panel);
-                    break;
+                foreach (var (fecha, panel) in panelesDias)
+                    flowLayoutPanelEguraldia.Controls.Add(panel);
+            }
+            else
+            {
+                var panel = panelesDias.FirstOrDefault(p => p.Fecha == filtroFecha).PanelDia;
+                if (panel != null)
+                    flowLayoutPanelEguraldia.Controls.Add(panel);
             }
         }
     }

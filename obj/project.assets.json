@@ -7116,23 +7116,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Benatge\\.nuget\\packages\\": {},
+    "C:\\Users\\ianmu\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Benatge\\Desktop\\Erronka2\\2erronka_4taldea_TPV\\2taldea.csproj",
+      "projectUniqueName": "C:\\Users\\ianmu\\Documents\\2MG3\\Erronka2\\TPV\\2taldea.csproj",
       "projectName": "2taldea",
-      "projectPath": "C:\\Users\\Benatge\\Desktop\\Erronka2\\2erronka_4taldea_TPV\\2taldea.csproj",
-      "packagesPath": "C:\\Users\\Benatge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Benatge\\Desktop\\Erronka2\\2erronka_4taldea_TPV\\obj\\",
+      "projectPath": "C:\\Users\\ianmu\\Documents\\2MG3\\Erronka2\\TPV\\2taldea.csproj",
+      "packagesPath": "C:\\Users\\ianmu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ianmu\\Documents\\2MG3\\Erronka2\\TPV\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Benatge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ianmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7153,13 +7153,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net7.0-windows7.0": {
@@ -7213,7 +7207,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

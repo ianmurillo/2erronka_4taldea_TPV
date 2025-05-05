@@ -19,30 +19,47 @@ namespace _2taldea
         {
             try
             {
-                String izena = txtIzena.Text;
-                int stock = Convert.ToInt16(txtStock.Text);
-                int min = Convert.ToInt16(txtMax.Text);
-                int max = Convert.ToInt16(txtMin.Text);
-
-                String result = ProduktuaKudeatzailea.ProduktuaAdd(sessionFactory, izena, stock, min, max);
-
-                if (result == "true")
+                if (string.IsNullOrWhiteSpace(txtIzena.Text) ||
+                    string.IsNullOrWhiteSpace(txtMota.Text) ||
+                    string.IsNullOrWhiteSpace(txtEzaugarria.Text) ||
+                    string.IsNullOrWhiteSpace(txtStock.Text) ||
+                    string.IsNullOrWhiteSpace(txtUnitatea.Text) ||
+                    string.IsNullOrWhiteSpace(txtMin.Text) ||
+                    string.IsNullOrWhiteSpace(txtMax.Text))
                 {
-                    MessageBox.Show("Produktua ongi gordeta", "Informazioa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bete eremu guztiak mesedez.", "Errorea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string izena = txtIzena.Text;
+                string mota = txtMota.Text;
+                string ezaugarria = txtEzaugarria.Text;
+                int stock = int.Parse(txtStock.Text);
+                string unitatea = txtUnitatea.Text;
+                int min = int.Parse(txtMin.Text);
+                int max = int.Parse(txtMax.Text);
+
+                // Simulamos CreatedBy = 1 (en la práctica debería venir del usuario logueado)
+                int createdBy = 1;
+
+                var add = new ProduktuaAddClass(sessionFactory);
+                if (add.AgregarProducto(izena, mota, ezaugarria, stock, unitatea, min, max, createdBy, out string mensaje))
+                {
+                    MessageBox.Show(mensaje, "Informazioa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show(result);
+                    MessageBox.Show(mensaje, "Errorea", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Errorea: " + ex.Message);
             }
-
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

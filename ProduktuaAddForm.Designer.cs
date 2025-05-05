@@ -4,14 +4,20 @@
     {
         private System.ComponentModel.IContainer components = null;
         private TextBox txtIzena;
+        private TextBox txtMota;
+        private TextBox txtEzaugarria;
         private TextBox txtStock;
+        private TextBox txtUnitatea;
         private TextBox txtMax;
         private TextBox txtMin;
         private Button btnGorde;
         private Button btnUtzi;
         private Label labelTitle;
         private Label labelIzena;
+        private Label labelMota;
+        private Label labelEzaugarria;
         private Label labelStock;
+        private Label labelUnitatea;
         private Label labelMax;
         private Label labelMin;
         private PictureBox pictureBox;
@@ -28,14 +34,20 @@
         private void InitializeComponent()
         {
             txtIzena = new TextBox();
+            txtMota = new TextBox();
+            txtEzaugarria = new TextBox();
             txtStock = new TextBox();
+            txtUnitatea = new TextBox();
             txtMax = new TextBox();
             txtMin = new TextBox();
             btnGorde = new Button();
             btnUtzi = new Button();
             labelTitle = new Label();
             labelIzena = new Label();
+            labelMota = new Label();
+            labelEzaugarria = new Label();
             labelStock = new Label();
+            labelUnitatea = new Label();
             labelMax = new Label();
             labelMin = new Label();
             pictureBox = new PictureBox();
@@ -51,6 +63,28 @@
             txtIzena.Size = new Size(350, 23);
             txtIzena.TabIndex = 0;
             // 
+            // txtMota
+            // 
+            txtMota = new TextBox();
+            txtMota.BackColor = Color.FromArgb(186, 69, 13);
+            txtMota.ForeColor = Color.White;
+            txtMota.Location = new Point(850, 600);
+            txtMota.Name = "txtMota";
+            txtMota.Size = new Size(350, 23);
+            txtMota.TabIndex = 1;
+            Controls.Add(txtMota);
+            // 
+            // txtEzaugarria
+            // 
+            txtEzaugarria = new TextBox();
+            txtEzaugarria.BackColor = Color.FromArgb(186, 69, 13);
+            txtEzaugarria.ForeColor = Color.White;
+            txtEzaugarria.Location = new Point(850, 650);
+            txtEzaugarria.Name = "txtEzaugarria";
+            txtEzaugarria.Size = new Size(350, 23);
+            txtEzaugarria.TabIndex = 2;
+            Controls.Add(txtEzaugarria);
+            // 
             // txtStock
             // 
             txtStock.BackColor = Color.FromArgb(186, 69, 13);
@@ -58,7 +92,18 @@
             txtStock.Location = new Point(850, 450);
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(350, 23);
-            txtStock.TabIndex = 1;
+            txtStock.TabIndex = 3;
+            // 
+            // txtUnitatea
+            // 
+            txtUnitatea = new TextBox();
+            txtUnitatea.BackColor = Color.FromArgb(186, 69, 13);
+            txtUnitatea.ForeColor = Color.White;
+            txtUnitatea.Location = new Point(850, 700);
+            txtUnitatea.Name = "txtUnitatea";
+            txtUnitatea.Size = new Size(350, 23);
+            txtUnitatea.TabIndex = 4;
+            Controls.Add(txtUnitatea);
             // 
             // txtMax
             // 
@@ -67,7 +112,7 @@
             txtMax.Location = new Point(850, 503);
             txtMax.Name = "txtMax";
             txtMax.Size = new Size(350, 23);
-            txtMax.TabIndex = 3;
+            txtMax.TabIndex = 5;
             // 
             // txtMin
             // 
@@ -76,7 +121,7 @@
             txtMin.Location = new Point(850, 554);
             txtMin.Name = "txtMin";
             txtMin.Size = new Size(350, 23);
-            txtMin.TabIndex = 4;
+            txtMin.TabIndex = 6;
             txtMin.TextChanged += txtMin_TextChanged;
             // 
             // btnGorde
@@ -88,7 +133,7 @@
             btnGorde.Location = new Point(500, 800);
             btnGorde.Name = "btnGorde";
             btnGorde.Size = new Size(150, 50);
-            btnGorde.TabIndex = 5;
+            btnGorde.TabIndex = 7;
             btnGorde.Text = "Gorde";
             btnGorde.UseVisualStyleBackColor = false;
             btnGorde.Click += btnGorde_Click;
@@ -102,7 +147,7 @@
             btnUtzi.Location = new Point(1300, 800);
             btnUtzi.Name = "btnUtzi";
             btnUtzi.Size = new Size(150, 50);
-            btnUtzi.TabIndex = 6;
+            btnUtzi.TabIndex = 8;
             btnUtzi.Text = "Utzi";
             btnUtzi.UseVisualStyleBackColor = false;
             btnUtzi.Click += btnUtzi_Click;
@@ -115,7 +160,7 @@
             labelTitle.Location = new Point(850, 50);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(286, 45);
-            labelTitle.TabIndex = 7;
+            labelTitle.TabIndex = 9;
             labelTitle.Text = "Produktua Gehitu";
             // 
             // labelIzena
@@ -126,8 +171,34 @@
             labelIzena.Location = new Point(600, 400);
             labelIzena.Name = "labelIzena";
             labelIzena.Size = new Size(64, 25);
-            labelIzena.TabIndex = 8;
+            labelIzena.TabIndex = 10;
             labelIzena.Text = "Izena:";
+            // 
+            // labelMota
+            // 
+            labelMota = new Label();
+            labelMota.AutoSize = true;
+            labelMota.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMota.ForeColor = Color.White;
+            labelMota.Location = new Point(600, 600);
+            labelMota.Name = "labelMota";
+            labelMota.Size = new Size(61, 25);
+            labelMota.TabIndex = 11;
+            labelMota.Text = "Mota:";
+            Controls.Add(labelMota);
+            // 
+            // labelEzaugarria
+            // 
+            labelEzaugarria = new Label();
+            labelEzaugarria.AutoSize = true;
+            labelEzaugarria.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            labelEzaugarria.ForeColor = Color.White;
+            labelEzaugarria.Location = new Point(600, 650);
+            labelEzaugarria.Name = "labelEzaugarria";
+            labelEzaugarria.Size = new Size(118, 25);
+            labelEzaugarria.TabIndex = 12;
+            labelEzaugarria.Text = "Ezaugarria:";
+            Controls.Add(labelEzaugarria);
             // 
             // labelStock
             // 
@@ -137,8 +208,21 @@
             labelStock.Location = new Point(600, 450);
             labelStock.Name = "labelStock";
             labelStock.Size = new Size(68, 25);
-            labelStock.TabIndex = 9;
+            labelStock.TabIndex = 13;
             labelStock.Text = "Stock:";
+            // 
+            // labelUnitatea
+            // 
+            labelUnitatea = new Label();
+            labelUnitatea.AutoSize = true;
+            labelUnitatea.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            labelUnitatea.ForeColor = Color.White;
+            labelUnitatea.Location = new Point(600, 700);
+            labelUnitatea.Name = "labelUnitatea";
+            labelUnitatea.Size = new Size(98, 25);
+            labelUnitatea.TabIndex = 14;
+            labelUnitatea.Text = "Unitatea:";
+            Controls.Add(labelUnitatea);
             // 
             // labelMax
             // 
@@ -148,7 +232,7 @@
             labelMax.Location = new Point(600, 554);
             labelMax.Name = "labelMax";
             labelMax.Size = new Size(100, 25);
-            labelMax.TabIndex = 11;
+            labelMax.TabIndex = 15;
             labelMax.Text = "Maximoa:";
             // 
             // labelMin
@@ -159,7 +243,7 @@
             labelMin.Location = new Point(600, 503);
             labelMin.Name = "labelMin";
             labelMin.Size = new Size(96, 25);
-            labelMin.TabIndex = 12;
+            labelMin.TabIndex = 16;
             labelMin.Text = "Minimoa:";
             // 
             // pictureBox
@@ -169,7 +253,7 @@
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(250, 200);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.TabIndex = 13;
+            pictureBox.TabIndex = 17;
             pictureBox.TabStop = false;
             // 
             // ProduktuaAddForm
@@ -181,12 +265,18 @@
             Controls.Add(labelTitle);
             Controls.Add(labelIzena);
             Controls.Add(txtIzena);
+            Controls.Add(labelMota);
+            Controls.Add(txtMota);
+            Controls.Add(labelEzaugarria);
+            Controls.Add(txtEzaugarria);
             Controls.Add(labelStock);
             Controls.Add(txtStock);
-            Controls.Add(labelMax);
-            Controls.Add(txtMax);
+            Controls.Add(labelUnitatea);
+            Controls.Add(txtUnitatea);
             Controls.Add(labelMin);
             Controls.Add(txtMin);
+            Controls.Add(labelMax);
+            Controls.Add(txtMax);
             Controls.Add(btnGorde);
             Controls.Add(btnUtzi);
             Controls.Add(pictureBox);

@@ -11,23 +11,26 @@ public class ProduktuaAddClass
         this.sessionFactory = sessionFactory ?? throw new ArgumentNullException(nameof(sessionFactory));
     }
 
-    public bool AgregarProducto(string nombre, int stock, int min, int max, out string mensaje)
+    public bool AgregarProducto(string nombre, string mota, string ezaugarria, int stock, string unitatea, int min, int max, int? createdBy, out string mensaje)
     {
         try
         {
             using (var session = sessionFactory.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
-                // Crear un nuevo producto
                 var nuevoProducto = new Almazena
                 {
                     Izena = nombre,
+                    Mota = mota,
+                    Ezaugarria = ezaugarria,
                     Stock = stock,
+                    Unitatea = unitatea,
                     Min = min,
                     Max = max,
+                    CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    CreatedBy = createdBy
                 };
 
-                // Guardar el producto en la base de datos
                 session.Save(nuevoProducto);
                 transaction.Commit();
 
@@ -41,4 +44,5 @@ public class ProduktuaAddClass
             return false;
         }
     }
+
 }
