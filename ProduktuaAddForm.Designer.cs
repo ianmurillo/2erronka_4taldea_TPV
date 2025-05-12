@@ -229,7 +229,7 @@
             labelMax.AutoSize = true;
             labelMax.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             labelMax.ForeColor = Color.White;
-            labelMax.Location = new Point(600, 554);
+            labelMax.Location = new Point(600, 503);
             labelMax.Name = "labelMax";
             labelMax.Size = new Size(100, 25);
             labelMax.TabIndex = 15;
@@ -240,7 +240,7 @@
             labelMin.AutoSize = true;
             labelMin.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             labelMin.ForeColor = Color.White;
-            labelMin.Location = new Point(600, 503);
+            labelMin.Location = new Point(600, 554);
             labelMin.Name = "labelMin";
             labelMin.Size = new Size(96, 25);
             labelMin.TabIndex = 16;
