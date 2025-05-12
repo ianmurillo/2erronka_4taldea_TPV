@@ -71,7 +71,7 @@ namespace _2taldea
             // 
             txtMax.BackColor = Color.FromArgb(186, 69, 13);
             txtMax.ForeColor = Color.White;
-            txtMax.Location = new Point(850, 499);
+            txtMax.Location = new Point(850, 550);
             txtMax.Name = "txtMax";
             txtMax.Size = new Size(350, 23);
             txtMax.TabIndex = 10;
@@ -80,7 +80,7 @@ namespace _2taldea
             // 
             txtMin.BackColor = Color.FromArgb(186, 69, 13);
             txtMin.ForeColor = Color.White;
-            txtMin.Location = new Point(850, 550);
+            txtMin.Location = new Point(850, 499);
             txtMin.Name = "txtMin";
             txtMin.Size = new Size(350, 23);
             txtMin.TabIndex = 11;

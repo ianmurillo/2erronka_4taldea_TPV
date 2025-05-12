@@ -18,8 +18,8 @@ namespace _2taldea
             // Cargar los datos del producto en los controles
             txtIzena.Text = produktua.Izena;
             txtStock.Text = produktua.Stock.ToString();
-            txtMax.Text = produktua.Max.ToString();
             txtMin.Text = produktua.Min.ToString();
+            txtMax.Text = produktua.Max.ToString();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -28,10 +28,10 @@ namespace _2taldea
             {
                 String izena = txtIzena.Text;
                 int stock = Convert.ToInt16(txtStock.Text);
-                int max = Convert.ToInt16(txtMax.Text);
                 int min = Convert.ToInt16(txtMin.Text);
+                int max = Convert.ToInt16(txtMax.Text);
 
-                String result = ProduktuaKudeatzailea.ProduktuaUpdate(sessionFactory, produktua, izena, stock, max, min);
+                String result = ProduktuaKudeatzailea.ProduktuaUpdate(sessionFactory, produktua, izena, stock, min, max);
 
                 if (result == "true")
                 {

@@ -126,7 +126,7 @@ namespace _2taldea
             if (panelChat == null) return;
 
             // Separar el nombre del remitente del mensaje
-            message = message.Trim();
+            message = message.TrimStart(' ');
             var parts = message.Split(new char[] { '>' }, 2);
             if (parts.Length < 2) return;
             string senderName = parts[0];
@@ -134,7 +134,7 @@ namespace _2taldea
 
             message = senderName + ">" + msg;
 
-            bool isUser = (senderName.Trim() == this.izena.Trim());
+            bool isUser = (senderName.TrimStart(' ') == this.izena.TrimStart(' '));
 
             Label labelMessage = new Label
             {
@@ -206,16 +206,46 @@ namespace _2taldea
 
         public static string Decrypt(string cipherText, string key)
         {
-            using (Aes aes = Aes.Create())
+            try
             {
-                aes.Key = Encoding.UTF8.GetBytes(key.PadRight(32)); // 256-bit key
-                aes.IV = new byte[16];
+                // Generar clave segura de 32 bytes
+                byte[] keyBytes = Encoding.UTF8.GetBytes(key.PadRight(32));
 
-                ICryptoTransform decryptor = aes.CreateDecryptor();
-                byte[] decrypted = decryptor.TransformFinalBlock(Convert.FromBase64String(cipherText), 0, Convert.FromBase64String(cipherText).Length);
+                // Vector de inicialización (debe ser igual al usado en encriptación)
+                byte[] iv = new byte[16];
 
-                return Encoding.UTF8.GetString(decrypted);
+                // Decodificar Base64
+                byte[] encryptedData = Convert.FromBase64String(cipherText);
+
+                using (Aes aes = Aes.Create())
+                {
+                    aes.Key = keyBytes;
+                    aes.IV = iv;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+
+                    using (MemoryStream ms = new MemoryStream(encryptedData))
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                    using (StreamReader reader = new StreamReader(cs))
+                    {
+                        return reader.ReadToEnd(); // Aquí se descifra todo el flujo
+                    }
+                }
             }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error de formato Base64: " + ex.Message);
+            }
+            catch (CryptographicException ex)
+            {
+                MessageBox.Show("Error de criptografía: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error desconocido: " + ex.Message);
+            }
+
+            return "[ERROR: Mensaje no pudo ser descifrado]";
         }
 
         private void ConnectToServer()
@@ -249,9 +279,9 @@ namespace _2taldea
 
                         if (parts.Length == 3)
                         {
-                            string remitente = parts[0].Trim();
-                            string fileName = parts[1].Trim();
-                            string encodedFile = parts[2].Trim();
+                            string remitente = parts[0].TrimStart(' ');
+                            string fileName = parts[1];
+                            string encodedFile = parts[2].TrimStart(' ');
 
                             if (IsProbablyBase64(encodedFile))
                             {
@@ -303,7 +333,8 @@ namespace _2taldea
                         writer.WriteLine(formattedMessage);
 
                         // También lo mostramos en nuestro chat
-                        AddMessageToPanel(this.izena + " > " + fileName, true);
+                        string msg = this.izena + ">" + fileName;
+                        AddMessageToPanel(msg, true);
                     }
                     catch (Exception ex)
                     {
